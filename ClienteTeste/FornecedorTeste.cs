@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using Bogus.DataSets;
 
 namespace Teste
 {
@@ -39,5 +40,29 @@ namespace Teste
             FornecedorBuilder.Novo().GerarDados().ComNomee(nome).Criar()
             );
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void FornecedorEnderecoInvalido(string ende)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+            FornecedorBuilder.Novo().GerarDados().ComEnderecoe(ende).Criar()
+            );
+        }
+
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void FornecedorTelefoneInvalido(string tele)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+            FornecedorBuilder.Novo().GerarDados().ComTelefonee(tele).Criar()
+            );
+        }
+
     }
 }

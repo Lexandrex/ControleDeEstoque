@@ -18,7 +18,7 @@ namespace Teste
 
         public static FornecedorBuilder Novo()
         {
-        return new FornecedorBuilder();
+            return new FornecedorBuilder();
         }
 
         public Fornecedor Criar()
@@ -66,6 +66,12 @@ namespace Teste
         public FornecedorBuilder ComTermos(string ter)
         {
             this.termos = ter;
+            return this;
+        }
+
+        public FornecedorBuilder ComEmaile(string emaile)
+        {
+            this.emaile = emaile;
             return this;
         }
     }

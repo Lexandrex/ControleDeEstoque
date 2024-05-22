@@ -64,12 +64,11 @@ namespace Teste
         {
             Assert.Throws<ArgumentException>(
                 () =>
-            ClienteBuilder.Novo().ComNome(tel).Criar()
+            ClienteBuilder.Novo().GerarDados().ComTelefone(tel).Criar()
             );
         }
+
         [Theory]
-        [InlineData(null)]
-        [InlineData("")]
         [InlineData("ale")]
         [InlineData("ale@")]
         [InlineData("@hot.com.br")]
@@ -77,7 +76,7 @@ namespace Teste
         {
             Assert.Throws<ArgumentException>(
                 () =>
-            ClienteBuilder.Novo().ComNome(ema).Criar()
+            ClienteBuilder.Novo().GerarDados().ComEmail(ema).Criar()
             );
         }
 

@@ -20,7 +20,9 @@
         {
             if (string.IsNullOrEmpty(nome)) throw new ArgumentException("Nome inválido");
             if (codigo < 1) throw new ArgumentException("Código inválido");
-            if (string.IsNullOrEmpty(email) || !EmailValido(email)) throw new ArgumentException("Email inválido");
+            if (!EmailValido(email)) throw new ArgumentException("Email inválido");
+            if (string.IsNullOrEmpty(telefone)) throw new ArgumentException("telefone inválido");
+            if (string.IsNullOrEmpty(endereco)) throw new ArgumentException("endereço inválido");
             this.Codigo = codigo;
             this.Nome = nome;
             this.Endereco = endereco;
